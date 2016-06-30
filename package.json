@@ -1,0 +1,23 @@
+{
+  "name": "greenkeeper-keeper",
+  "version": "0.0.1",
+  "description": "automatically merge and clean up passing greenkeeper PRs",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kkemple/greenkeeper-keeper.git"
+  },
+  "keywords": [
+    "greenkeeper.io",
+    "github"
+  ],
+  "author": "Kurtis Kemple <kurtiskemple@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kkemple/greenkeeper-keeper/issues"
+  },
+  "homepage": "https://github.com/kkemple/greenkeeper-keeper#readme"
+}
