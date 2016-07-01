@@ -101,7 +101,6 @@ module.exports.register = (server, options, next) => {
 
             return Promise.resolve()
           })
-          .then(() => request.log(['info', 'Branch', 'deleted'], pull_request.url))
           .catch((error) => {
             request.log(['error', 'PR'], error)
             commentWithError(pull_request.comments_url, number, error)
