@@ -46,7 +46,8 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
           return Promise.reject(new PendingTimeoutError())
         }
 
-        return validatePR(statusesUrl, timeout * 2)
+        return new Promise((resolve) => setTimeout(() => resolve(), timeout))
+          .then(() => validatePR(statusesUrl, timeout * 2))
       }
 
       return Promise.resolve()
