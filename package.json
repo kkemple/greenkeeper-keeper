@@ -31,7 +31,7 @@
     "good": "^7.0.1",
     "good-console": "^6.1.2",
     "hapi": "^13.4.1",
-    "highwire": "^1.1.5"
+    "highwire": "^1.1.6"
   },
   "devDependencies": {
     "nock": "^8.0.0",
