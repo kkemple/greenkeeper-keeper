@@ -1,0 +1,8 @@
+{
+  "name": "greenkeeper-keeper",
+  "description": "automatically merge and clean up passing greenkeeper PRs",
+  "repository": "https://github.com/kkemple/greenkeeper-keeper.git",
+  "logo": "https://raw.githubusercontent.com/kkemple/greenkeeper-keeper/master/assets/greenkeeper-keeper-bot.jpg",
+  "keywords": ["node", "greenkeeper.io", "github", "hapi"],
+  "image": "heroku/nodejs"
+}
