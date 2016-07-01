@@ -31,7 +31,8 @@ Then in your application settings, set environment variables for:
 
 - `GITHUB_USER`: GitHub username
 - `GITHUB_TOKEN`: GitHub personal access token
-- `SQUASH_MERGES`: Squash commits on merge (false by default)
+- `SQUASH_MERGES`: Squash commits on merge (`false` by default)
+- `DELETE_BRANCHES`: Remove branch after successful merge (`true` by default)
 
 ### Setting Up Webhooks
 

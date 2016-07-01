@@ -8,11 +8,12 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GITHUB_USER = process.env.GITHUB_USER
 const GREENKEEPER_BOT_GITHUB_URL = 'https://github.com/greenkeeperio-bot'
 const SQUASH_MERGES = process.env.SQUASH_MERGES || false
+const DELETE_BRANCHES = process.env.DELETE_BRANCHES || true
 
 const MINUTE = 1000 * 60
 const HOUR = MINUTE * 60
 
-const { get, put, post } = highwire
+const { get, put, post, del } = highwire
 
 const headers = {
   'Authorization': `Basic ${btoa(GITHUB_USER + ':' + GITHUB_TOKEN)}`
@@ -51,6 +52,14 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
       return Promise.resolve()
     })
 
+const deleteBranch = (head) => {
+  const { repo } = head
+  const path = `/repos/${repo.full_name}/git/refs/${head.ref}`
+  const url = `https://api.github.com${path}`
+
+  return del(url, { headers })
+}
+
 const openedByGreenKeeperBot = (sender) => {
   return sender.html_url === GREENKEEPER_BOT_GITHUB_URL
 }
@@ -75,7 +84,7 @@ module.exports.register = (server, options, next) => {
       const { action, sender, pull_request, number } = request.payload
 
       if (action === 'opened' && openedByGreenKeeperBot(sender)) {
-        request.log(['info', 'PR', 'validating'])
+        request.log(['info', 'PR', 'validating'], pull_request.url)
         validatePR(pull_request.statuses_url)
           .then(() => request.log(['info', 'PR', 'validated']))
           .then(() => mergePR(
@@ -83,7 +92,15 @@ module.exports.register = (server, options, next) => {
             number,
             pull_request.head.sha
           ))
-          .then(() => request.log(['info', 'PR', 'merged']))
+          .then(() => request.log(['info', 'PR', 'merged'], pull_request.url))
+          .then(() => {
+            if (DELETE_BRANCHES) {
+              return deleteBranch(pull_request.head)
+            }
+
+            return Promise.resolve()
+          })
+          .then(() => request.log(['info', 'Branch', 'deleted'], pull_request.url))
           .catch((error) => {
             request.log(['error', 'PR'], error)
             commentWithError(pull_request.comments_url, number, error)
