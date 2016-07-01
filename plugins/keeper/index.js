@@ -1,5 +1,7 @@
 const btoa = require('btoa')
+const groupBy = require('lodash.groupby')
 const highwire = require('highwire')
+const values = require('lodash.values')
 
 const FailedStatusFoundError = require('./failed-status-found-error')
 const PendingTimeoutError = require('./pending-timeout-error')
@@ -34,8 +36,10 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
   get(statusesUrl, { headers })
     .then((response) => response.body)
     .then((statuses) => {
-      const failed = statuses.filter((s) => s.state === 'failure')
-      const pending = statuses.filter((s) => s.state === 'pending')
+      const groups = values(groupBy(statuses, 'context'))
+      const latest = groups.map((g) => g.sort((a, b) => a.created_at > a.created_at)[0])
+      const failed = latest.filter((s) => s.state === 'failure')
+      const pending = latest.filter((s) => s.state === 'pending')
 
       if (failed.length) {
         return Promise.reject(new FailedStatusFoundError())
