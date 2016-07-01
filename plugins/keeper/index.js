@@ -54,7 +54,7 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
 
 const deleteBranch = (head) => {
   const { repo } = head
-  const path = `/repos/${repo.full_name}/git/refs/${head.ref}`
+  const path = `/repos/${repo.full_name}/git/refs/heads/${head.ref}`
   const url = `https://api.github.com${path}`
 
   return del(url, { headers })
