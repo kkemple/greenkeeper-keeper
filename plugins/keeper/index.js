@@ -34,29 +34,20 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
   get(statusesUrl, { headers })
     .then((response) => response.body)
     .then((statuses) => {
-      console.log(statuses)
-      const failed = statuses.filter((s) => s.state === 'failed')
+      const failed = statuses.filter((s) => s.state === 'failure')
       const pending = statuses.filter((s) => s.state === 'pending')
 
       if (failed.length) {
-        console.log('failed')
         return Promise.reject(new FailedStatusFoundError())
       }
 
       if (pending.length) {
         if (timeout > HOUR) {
-          console.log('timed out')
           return Promise.reject(new PendingTimeoutError())
         }
 
-        return new Promise((resolve) => {
-          console.log('in timeout', timeout)
-          setTimeout(() => { resolve() }, timeout)
-        })
-        .then(() => {
-          console.log('trying statuses again', statusesUrl, timeout)
-          validatePR(statusesUrl, timeout * 2)
-        })
+        return new Promise((resolve) => setTimeout(() => resolve(), timeout))
+          .then(() => validatePR(statusesUrl, timeout * 2))
       }
 
       return Promise.resolve()
