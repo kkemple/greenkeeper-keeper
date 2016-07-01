@@ -14,9 +14,9 @@ The idea is simple. If a `greenkeeperio-bot` PR is valid, `greenkeeper-keeper` w
 
 - GitHub Username and Personal Access Token
 
-  To use this service you will need a GitHub username and personal access token. (**I recommend making a "bot" GitHub user and adding to the correct org/team/repo and using that user only for this service.**) These will be used as environment variables for the service.
+  To use this service you will need a GitHub username and personal access token. These will be used as environment variables for the service.
 
-  > **The personal access token will need the `repo` and `repo:read_hooks` scopes to work properly.**
+  > **The personal access token will need the `repo` and `repo:read_hooks` scopes to work properly. I recommend making a "bot" GitHub user and adding to the correct org/team/repo and using that user only for this service.**
 
 - Webhooks
 
