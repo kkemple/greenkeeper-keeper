@@ -39,7 +39,7 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
       const contexts = values(groupBy(statuses, 'context'))
       const latest = contexts.map((c) => c.sort((a, b) => {
         console.log('in sort', a.id, b.id)
-        return a.id > b.id
+        return a.id < b.id
       })[0])
       const failed = latest.filter((s) => s.state === 'failure')
       const pending = latest.filter((s) => s.state === 'pending')
