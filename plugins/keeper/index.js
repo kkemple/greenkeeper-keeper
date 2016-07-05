@@ -41,11 +41,11 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
       const failed = latest.filter((s) => s.state === 'failure')
       const pending = latest.filter((s) => s.state === 'pending')
 
-      console.log('validating PR', {
+      console.info('validating PR', {
         timeout,
         statusesUrl,
-        contexts: contexts.toJSON(),
-        latest: latest.toJSON(),
+        contexts: contexts,
+        latest: latest,
         failed: failed.length,
         pending: pending.length
       })
