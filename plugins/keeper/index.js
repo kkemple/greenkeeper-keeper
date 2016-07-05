@@ -44,10 +44,10 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
       console.log('validating PR', {
         timeout,
         statusesUrl,
-        contexts,
-        latest,
-        failed,
-        pending
+        contexts: contexts.toJSON(),
+        latest: latest.toJSON(),
+        failed: failed.length,
+        pending: pending.length
       })
 
       if (failed.length) {
