@@ -32,7 +32,7 @@
     "good-console": "^6.1.2",
     "hapi": "^13.4.1",
     "highwire": "^1.1.6",
-    "lodash.groupby": "^4.4.0",
+    "lodash.groupby": "^4.5.0",
     "lodash.values": "^4.1.0"
   },
   "devDependencies": {
