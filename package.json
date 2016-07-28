@@ -30,7 +30,7 @@
     "btoa": "^1.1.2",
     "good": "^7.0.1",
     "good-console": "^6.1.2",
-    "hapi": "^13.5.1",
+    "hapi": "^13.5.2",
     "highwire": "^1.1.6",
     "lodash.groupby": "^4.5.0",
     "lodash.values": "^4.2.0"
