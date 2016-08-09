@@ -39,6 +39,7 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
       const contexts = values(groupBy(statuses, 'context'))
       const latest = contexts.map((c) => c.sort((a, b) => a.id < b.id)[0])
       const failed = latest.filter((s) => s.state === 'failure')
+      const error = latest.filter((s) => s.state === 'error')
       const pending = latest.filter((s) => s.state === 'pending')
 
       console.info('validating PR', {
@@ -46,10 +47,11 @@ const validatePR = (statusesUrl, timeout = MINUTE) =>
         statusesUrl,
         latest: latest,
         failed: failed.length,
+        error: error.length,
         pending: pending.length
       })
 
-      if (failed.length) {
+      if (failed.length || error.length) {
         console.log('found failed, rejecting...')
         return Promise.reject(new FailedStatusFoundError())
       }
