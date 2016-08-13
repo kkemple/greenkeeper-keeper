@@ -33,7 +33,7 @@
     "hapi": "^14.1.0",
     "highwire": "^1.1.6",
     "lodash.groupby": "^4.6.0",
-    "lodash.values": "^4.2.0"
+    "lodash.values": "^4.3.0"
   },
   "devDependencies": {
     "nock": "^8.0.0",
