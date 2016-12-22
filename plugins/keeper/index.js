@@ -9,6 +9,7 @@ const PendingTimeoutError = require('./pending-timeout-error')
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GITHUB_USER = process.env.GITHUB_USER
 const GREENKEEPER_BOT_GITHUB_URL = 'https://github.com/greenkeeperio-bot'
+const GREENKEEPER_INTEGRATION_GITHUB_URL = 'https://github.com/integration/greenkeeper'
 const SQUASH_MERGES = process.env.SQUASH_MERGES || false
 const DELETE_BRANCHES = process.env.DELETE_BRANCHES || true
 
@@ -80,7 +81,7 @@ const deleteBranch = (head) => {
 }
 
 const openedByGreenKeeperBot = (sender) => {
-  return sender.html_url === GREENKEEPER_BOT_GITHUB_URL
+  return sender.html_url === GREENKEEPER_BOT_GITHUB_URL || sender.html_url === GREENKEEPER_INTEGRATION_GITHUB_URL
 }
 
 const buildErrorComment = (message, prNumber) => {
