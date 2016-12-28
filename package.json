@@ -27,12 +27,10 @@
   },
   "homepage": "https://github.com/kkemple/greenkeeper-keeper#readme",
   "dependencies": {
-    "btoa": "^1.1.2",
     "good": "^7.1.0",
     "good-console": "^6.3.1",
     "hapi": "^16.1.0",
-    "highwire": "^1.1.6",
-    "lodash.groupby": "^4.6.0",
+    "hapi-greenkeeper-keeper": "0.2.0",
     "lodash.values": "^4.3.0"
   },
   "devDependencies": {

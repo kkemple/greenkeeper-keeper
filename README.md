@@ -12,9 +12,9 @@ The idea is simple. If a `greenkeeperio-bot` PR is valid, `greenkeeper-keeper` w
 
 ### Things You Need
 
-- GitHub Username and Personal Access Token
+- GitHub Personal Access Token
 
-  To use this service you will need a GitHub username and personal access token. These will be used as environment variables for the service.
+  To use this service you will need a GitHub personal access token. These will be used as environment variables for the service.
 
   > **The personal access token will need the `repo` and `repo:read_hooks` scopes to work properly. I recommend making a "bot" GitHub user and adding to the correct org/team/repo and using that user only for this service.**
 
@@ -29,7 +29,6 @@ The idea is simple. If a `greenkeeperio-bot` PR is valid, `greenkeeper-keeper` w
 
 Then in your application settings, set environment variables for:
 
-- `GITHUB_USER`: GitHub username
 - `GITHUB_TOKEN`: GitHub personal access token
 - `SQUASH_MERGES`: Squash commits on merge (`false` by default)
 - `DELETE_BRANCHES`: Remove branch after successful merge (`true` by default)
