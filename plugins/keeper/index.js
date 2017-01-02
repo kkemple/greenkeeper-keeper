@@ -30,7 +30,7 @@ const mergePR = (prUrl, prNumber, sha) => {
     squash: SQUASH_MERGES
   }
 
-  put(`${prUrl}/merge`, mergeData, { headers })
+  return put(`${prUrl}/merge`, mergeData, { headers })
 }
 
 const validatePR = (statusesUrl, timeout = MINUTE) =>
