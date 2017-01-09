@@ -1,7 +1,7 @@
 const hapi = require('hapi')
 const good = require('good')
 
-const keeper = require('./plugins/keeper')
+const keeper = require('hapi-greenkeeper-keeper')
 
 const goodOptions = {
   ops: {
@@ -25,7 +25,14 @@ server.register([
     options: goodOptions
   },
   {
-    register: keeper
+    register: keeper,
+    options: {
+        github: {
+            token: process.env.GITHUB_TOKEN
+        },
+        squash: process.env.SQUASH_MERGES || false,
+        deleteBranches: process.env.DELETE_BRANCHES || true
+    }
   }
 ], (error) => {
   if (error) {
