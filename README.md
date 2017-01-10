@@ -33,6 +33,12 @@ Then in your application settings, set environment variables for:
 - `SQUASH_MERGES`: Squash commits on merge (`false` by default)
 - `DELETE_BRANCHES`: Remove branch after successful merge (`true` by default)
 
+### Deploying with Docker
+
+A prebuilt image is available under [`cdaringe/greenkeeper-keeper`](https://hub.docker.com/r/cdaringe/greenkeeper-keeper).  Otherwise, see this project's [Dockerfile](./Dockerfile).
+
+Make sure to set the the `GITHUB_*` environment variables discussed above on the running container!
+
 ### Setting Up Webhooks
 
 Once your service is up and running, you will want to set up [webhooks](https://developer.github.com/webhooks) for the repositories you want `greenkeeper-keeper` to manage.
