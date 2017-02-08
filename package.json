@@ -28,7 +28,7 @@
   "homepage": "https://github.com/kkemple/greenkeeper-keeper#readme",
   "dependencies": {
     "good": "^7.1.0",
-    "good-console": "^6.3.1",
+    "good-console": "^6.4.0",
     "hapi": "^16.1.0",
     "hapi-greenkeeper-keeper": "1.0.3",
     "lodash.values": "^4.3.0"
