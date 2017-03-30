@@ -1,6 +1,10 @@
-![greenkeeper-keeper](./assets/greenkeeper-keeper-bot.jpg)
-
 # greenkeeper-keeper
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+_This version of `greenkeeper-keeper` is deprecated. Maintenance has been migrated to a [new organization](https://github.com/greenkeeper-keeper), so please find the latest version there._
+
+![greenkeeper-keeper](./assets/greenkeeper-keeper-bot.jpg)
 
 [Greenkeeper.io](https://greenkeeper.io/) is a fantastic service that makes it easy for me to keep dependencies up to date. However, I have found that on larger projects it can get a bit noisy and create quite a few PRs. While this is still preferable to the bulk update method (IMO), it's still not an ideal situation. I wanted to not have to deal with greenkeeper PRs at all unless a build fails. Hence the birth of `greenkeeper-keeper`.
 
