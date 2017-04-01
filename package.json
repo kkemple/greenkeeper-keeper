@@ -30,7 +30,7 @@
     "good": "^7.1.0",
     "good-console": "^6.4.0",
     "hapi": "^16.1.1",
-    "hapi-greenkeeper-keeper": "1.1.4",
+    "hapi-greenkeeper-keeper": "1.1.5",
     "lodash.values": "^4.3.0"
   },
   "devDependencies": {
