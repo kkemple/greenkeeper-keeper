@@ -34,7 +34,7 @@
     "lodash.values": "^4.3.0"
   },
   "devDependencies": {
-    "nock": "^9.0.11",
+    "nock": "^9.0.12",
     "standard": "^10.0.0"
   }
 }
