@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "nock": "^9.0.13",
-    "standard": "^10.0.0"
+    "standard": "^10.0.2"
   }
 }
