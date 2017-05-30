@@ -29,7 +29,7 @@
   "dependencies": {
     "good": "^7.2.0",
     "good-console": "^6.4.0",
-    "hapi": "^16.2.0",
+    "hapi": "^16.3.0",
     "hapi-greenkeeper-keeper": "1.1.15",
     "lodash.values": "^4.3.0"
   },
